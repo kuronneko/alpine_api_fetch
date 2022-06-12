@@ -1,7 +1,8 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-
+        <h4>v1.0.0.0</h4>
+    </x-slot>
+        <div class="grid justify-items-center mt-2">
             <div x-data="pokemonSearch"
                 class="p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">
                 <a href="#">
@@ -31,22 +32,19 @@
                 <template x-if="pokemon">
                     <div class="text-white py-2 px-2 border-4 border-indigo-500/50 rounded-lg">
                         <h1 x-text="pokemon.name" class="uppercase"></h1>
-                        <img
-                        :src="pokemon.sprites.front_shiny"
-                        class="rounded-lg w-32"
-                        alt="Avatar"
-                        />
+                        <img :src="pokemon.sprites.front_shiny" class="rounded-lg w-32" alt="Pokemon" />
 
                         <template x-for="ab in pokemon.abilities" :key="ab.ability.url">
-                            <span x-text="ab.ability.name" class="text-xs inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-indigo-600 text-white rounded"></span>
+                            <span x-text="ab.ability.name"
+                                class="text-xs inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-indigo-600 text-white rounded"></span>
                         </template>
                     </div>
                 </template>
 
             </div>
+        </div>
 
-        </h2>
-    </x-slot>
+
     @section('scripts')
         <script>
             document.addEventListener('alpine:init', () => {
