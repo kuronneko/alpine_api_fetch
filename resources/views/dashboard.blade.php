@@ -29,11 +29,16 @@
                 </div>
 
                 <template x-if="pokemon">
-                    <div class="text-white right-2.5 bottom-2.5 top-2.5">
-                        Pokemon: <span x-text="pokemon.name"></span>
-                        <img :src="pokemon.sprites.front_shiny">
+                    <div class="text-white py-2 px-2 border-4 border-indigo-500/50 rounded-lg">
+                        <h1 x-text="pokemon.name" class="uppercase"></h1>
+                        <img
+                        :src="pokemon.sprites.front_shiny"
+                        class="rounded-lg w-32"
+                        alt="Avatar"
+                        />
+
                         <template x-for="ab in pokemon.abilities" :key="ab.ability.url">
-                            <li x-text="ab.ability.name"></li>
+                            <span x-text="ab.ability.name" class="text-xs inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-indigo-600 text-white rounded"></span>
                         </template>
                     </div>
                 </template>
